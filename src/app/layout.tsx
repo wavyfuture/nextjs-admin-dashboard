@@ -5,10 +5,16 @@ import "@/css/satoshi.css";
 import "@/css/style.css";
 import React, { useEffect, useState } from "react";
 import Loader from "@/components/common/Loader";
-// add authenticator 
+
+// import and add authenticator 
+import {Amplify} from 'aws-amplify';
 import { Authenticator } from '@aws-amplify/ui-react';
 
+// configure amplify 
+import awsconfig from '../../aws-exports';
+Amplify.configure(awsconfig);
 
+// layout 
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -17,19 +23,52 @@ export default function RootLayout({
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [loading, setLoading] = useState<boolean>(true);
 
-  // const pathname = usePathname();
-
   useEffect(() => {
     setTimeout(() => setLoading(false), 1000);
   }, []);
 
   return (
     <html lang="en">
-      <Authenticator>
       <body suppressHydrationWarning={true}>
-        {loading ? <Loader /> : children}
+        <Authenticator>
+          {({ signOut, user }) => (
+            <>
+              {loading ? <Loader /> : children}
+              {/* Optional: Add a sign-out button */}
+              <button onClick={signOut} style={{ position: 'absolute', top: '10px', right: '10px' }}>
+                Sign out
+              </button>
+            </>
+          )}
+        </Authenticator>
       </body>
-      </Authenticator>
     </html>
   );
 }
+
+
+
+// export default function RootLayout({
+//   children,
+// }: Readonly<{
+//   children: React.ReactNode;
+// }>) {
+//   const [sidebarOpen, setSidebarOpen] = useState(false);
+//   const [loading, setLoading] = useState<boolean>(true);
+
+//   // const pathname = usePathname();
+
+//   useEffect(() => {
+//     setTimeout(() => setLoading(false), 1000);
+//   }, []);
+
+//   return (
+//     <html lang="en">
+//       <Authenticator>
+//       <body suppressHydrationWarning={true}>
+//         {loading ? <Loader /> : children}
+//       </body>
+//       </Authenticator>
+//     </html>
+//   );
+// }
