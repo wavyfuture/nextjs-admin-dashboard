@@ -9,29 +9,38 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@aws-amplify/ui-react": "^6.5.5",
     "apexcharts": "^3.45.2",
+    "aws-amplify": "^6.8.0",
     "flatpickr": "^4.6.13",
     "jsvectormap": "^1.5.3",
     "next": "^14.1.4",
     "react": "^18",
     "react-apexcharts": "^1.4.1",
     "react-dom": "^18",
-    "react-quill": "^2.0.0",
+    "react-quill": "^0.0.2",
     "react-select": "^5.8.0",
     "react-table": "^7.8.0"
   },
   "devDependencies": {
+    "@aws-amplify/backend": "^1.6.2",
+    "@aws-amplify/backend-cli": "^1.4.1",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@types/react-table": "^7.7.19",
     "autoprefixer": "^10.0.1",
+    "aws-cdk": "^2.166.0",
+    "aws-cdk-lib": "^2.166.0",
+    "constructs": "^10.4.2",
+    "esbuild": "^0.24.0",
     "eslint": "^8",
     "eslint-config-next": "14.1.0",
     "postcss": "^8",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.11",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3"
   }
 }

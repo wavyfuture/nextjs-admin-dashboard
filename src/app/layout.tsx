@@ -5,6 +5,9 @@ import "@/css/satoshi.css";
 import "@/css/style.css";
 import React, { useEffect, useState } from "react";
 import Loader from "@/components/common/Loader";
+// add authenticator 
+import { Authenticator } from '@aws-amplify/ui-react';
+
 
 export default function RootLayout({
   children,
@@ -22,9 +25,11 @@ export default function RootLayout({
 
   return (
     <html lang="en">
+      <Authenticator>
       <body suppressHydrationWarning={true}>
         {loading ? <Loader /> : children}
       </body>
+      </Authenticator>
     </html>
   );
 }
