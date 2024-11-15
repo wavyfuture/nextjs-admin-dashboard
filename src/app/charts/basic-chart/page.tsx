@@ -1,3 +1,4 @@
+"use client"; 
 import BasicChart from "@/components/Charts/BasicChart";
 import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLaout";
